@@ -19,8 +19,8 @@ namespace FakerLib
 
         public T Create<T>()
         {
-            ObjectFiller<T> objectFiller = new ObjectFiller<T>(_config);
-            return objectFiller.FillObject((T)Activator.CreateInstance(typeof(T)));
+            ObjectFiller objectFiller = new ObjectFiller(_config);
+            return (T)objectFiller.FillObject(typeof(T));
         }
     }
 }

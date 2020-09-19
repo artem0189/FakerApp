@@ -4,7 +4,7 @@ using System.Text;
 
 namespace FakerLib.Generators
 {
-    class IntGenerator : IGenerator
+    public class IntGenerator : IGenerator
     {
         private Random _rand;
 

@@ -10,14 +10,21 @@ namespace FakerConsoleApp
         static void Main(string[] args)
         {
             Faker faker = new Faker();
-            faker.Create<Foo>();
+            Foo foo = faker.Create<Foo>();
         }
+
+         /*
+            IGenerator generator = (IGenerator)Activator.CreateInstance(typeof(GenerateType));
+            NameType fdg = (NameType)generator.GenerateValue();
+
+            MemberExpression test = expression.Body as MemberExpression;
+            PropertyInfo t = test.Member as PropertyInfo;
+            t.SetValue(obj, fdg);
+        */
     }
 
     public class Foo
     {
-        public int gd;
-        private int fgdhfj;
-        public int Te { get; set; }
+        public int test;
     }
 }

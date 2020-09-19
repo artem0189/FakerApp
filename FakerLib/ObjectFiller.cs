@@ -2,29 +2,38 @@
 using System.Collections.Generic;
 using System.Text;
 using System.Reflection;
+using System.Linq;
 
 namespace FakerLib
 {
-    internal class ObjectFiller<T>
+    internal class ObjectFiller
     {
-        private FakerConfig _config;
+        private Generator _generator;
+        private const BindingFlags _flags = BindingFlags.Instance | BindingFlags.Public;
 
         public ObjectFiller(FakerConfig config)
         {
-            _config = config;
+            _generator = new Generator(config);
         }
 
-        public T FillObject(T obj)
+        public object FillObject(Type type)
         {
-            MemberInfo[] tre = GetAllVariables(obj);
-            return (T)obj;
+            object obj = Activator.CreateInstance(type);
+            MemberInfo[] memberInfo = GetAllVariables(type);
+            foreach (var value in memberInfo)
+            {
+                FillObject((value as FieldInfo).FieldType);
+            }
+            return obj;
         }
 
-        private MemberInfo[] GetAllVariables(T obj)
+        private MemberInfo[] GetAllVariables(Type type)
         {
-            Type type = obj.GetType();
-            BindingFlags flags = BindingFlags.Instance | BindingFlags.Public | BindingFlags.NonPublic;
-            return type.GetMembers(flags);
+            MemberInfo[] result = type.GetMembers(_flags).
+                Where(member => member is PropertyInfo || member is FieldInfo).
+                ToArray();
+
+            return result;
         }
     }
 }
