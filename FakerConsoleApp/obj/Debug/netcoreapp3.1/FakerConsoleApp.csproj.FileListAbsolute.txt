@@ -1,0 +1,14 @@
+C:\Users\USER\Desktop\лб\спп\FakerApp\FakerConsoleApp\FakerConsoleApp\obj\Debug\netcoreapp3.1\FakerConsoleApp.csprojAssemblyReference.cache
+C:\Users\USER\Desktop\лб\спп\FakerApp\FakerConsoleApp\FakerConsoleApp\obj\Debug\netcoreapp3.1\FakerConsoleApp.AssemblyInfoInputs.cache
+C:\Users\USER\Desktop\лб\спп\FakerApp\FakerConsoleApp\FakerConsoleApp\obj\Debug\netcoreapp3.1\FakerConsoleApp.AssemblyInfo.cs
+C:\Users\USER\Desktop\лб\спп\FakerApp\FakerConsoleApp\FakerConsoleApp\bin\Debug\netcoreapp3.1\FakerConsoleApp.exe
+C:\Users\USER\Desktop\лб\спп\FakerApp\FakerConsoleApp\FakerConsoleApp\bin\Debug\netcoreapp3.1\FakerConsoleApp.deps.json
+C:\Users\USER\Desktop\лб\спп\FakerApp\FakerConsoleApp\FakerConsoleApp\bin\Debug\netcoreapp3.1\FakerConsoleApp.runtimeconfig.json
+C:\Users\USER\Desktop\лб\спп\FakerApp\FakerConsoleApp\FakerConsoleApp\bin\Debug\netcoreapp3.1\FakerConsoleApp.runtimeconfig.dev.json
+C:\Users\USER\Desktop\лб\спп\FakerApp\FakerConsoleApp\FakerConsoleApp\bin\Debug\netcoreapp3.1\FakerConsoleApp.dll
+C:\Users\USER\Desktop\лб\спп\FakerApp\FakerConsoleApp\FakerConsoleApp\bin\Debug\netcoreapp3.1\FakerConsoleApp.pdb
+C:\Users\USER\Desktop\лб\спп\FakerApp\FakerConsoleApp\FakerConsoleApp\bin\Debug\netcoreapp3.1\FakerLib.dll
+C:\Users\USER\Desktop\лб\спп\FakerApp\FakerConsoleApp\FakerConsoleApp\bin\Debug\netcoreapp3.1\FakerLib.pdb
+C:\Users\USER\Desktop\лб\спп\FakerApp\FakerConsoleApp\FakerConsoleApp\obj\Debug\netcoreapp3.1\FakerConsoleApp.csproj.CopyComplete
+C:\Users\USER\Desktop\лб\спп\FakerApp\FakerConsoleApp\FakerConsoleApp\obj\Debug\netcoreapp3.1\FakerConsoleApp.dll
+C:\Users\USER\Desktop\лб\спп\FakerApp\FakerConsoleApp\FakerConsoleApp\obj\Debug\netcoreapp3.1\FakerConsoleApp.pdb
