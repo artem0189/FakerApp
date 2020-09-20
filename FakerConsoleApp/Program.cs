@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using FakerLib;
-using FakerLib.Generators;
+using FakerLib.Attribute;
 
 namespace FakerConsoleApp
 {
@@ -10,7 +10,7 @@ namespace FakerConsoleApp
         static void Main(string[] args)
         {
             Faker faker = new Faker();
-            Foo foo = faker.Create<Foo>();
+            Bar foo = faker.Create<Bar>();
         }
 
          /*
@@ -23,8 +23,21 @@ namespace FakerConsoleApp
         */
     }
 
+    [FakerDTO]
     public class Foo
     {
-        public int test;
+        public Bar bar;
+    }
+
+    [FakerDTO]
+    public class Bar
+    {
+        private int test;
+        public int trh;
+
+        public Bar(int test)
+        {
+            this.test = test;
+        }
     }
 }

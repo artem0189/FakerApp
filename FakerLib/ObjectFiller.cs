@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 using System.Reflection;
 using System.Linq;
+using FakerLib.Reflection;
 
 namespace FakerLib
 {
@@ -16,24 +17,42 @@ namespace FakerLib
             _generator = new Generator(config);
         }
 
-        public object FillObject(Type type)
+        public object FillObject(Type objectType)
         {
-            object obj = Activator.CreateInstance(type);
-            MemberInfo[] memberInfo = GetAllVariables(type);
-            foreach (var value in memberInfo)
+            object obj;
+            if (!_generator.TryGenerateValue(objectType, out obj))
             {
-                FillObject((value as FieldInfo).FieldType);
+                if (TryCreateObject(objectType, out obj))
+                {
+                    MemberInfo[] memberInfo = MetaInfo.GetFieldsAndProperties(objectType, _flags);
+                    for (int i = 0; i < memberInfo.Length; i++)
+                    {
+                        object value = FillObject(MetaInfo.GetMemberType(memberInfo[i]));
+                        MetaInfo.SetValue(memberInfo[i], obj, value);
+                    }
+                }
             }
             return obj;
         }
 
-        private MemberInfo[] GetAllVariables(Type type)
+        private bool TryCreateObject(Type objectType, out object obj)
         {
-            MemberInfo[] result = type.GetMembers(_flags).
-                Where(member => member is PropertyInfo || member is FieldInfo).
-                ToArray();
-
-            return result;
+            ConstructorInfo[] constructors = objectType.GetConstructors(_flags);
+            if (constructors.Length == 1 && constructors[0].GetParameters().Length == 0)
+            {
+                obj = Activator.CreateInstance(objectType);
+            }
+            else
+            {
+                ParameterInfo[] parameters = constructors.Last().GetParameters();
+                object[] constructorParams = new object[parameters.Length];
+                for (int i = 0; i < parameters.Length; i++)
+                {
+                    constructorParams[i] = FillObject(parameters[i].ParameterType);
+                }
+                obj = Activator.CreateInstance(objectType, constructorParams);
+            }
+            return obj != null;
         }
     }
 }
