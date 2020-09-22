@@ -2,6 +2,7 @@
 using System.Linq;
 using System.Collections.Generic;
 using System.Text;
+using System.Reflection;
 using FakerLib.Generators;
 using FakerLib.Attribute;
 
@@ -21,33 +22,25 @@ namespace FakerLib
             };
         }
 
-        public bool TryGenerateValue(Type objectType, out object obj)
+        public bool TryGenerateValue(FakerDTOType fakerType, out object obj)
         {
-            //Dto attribute check
-
-            bool result = false;
+            obj = null;
             IGenerator generator;
-            if (TryGetDefaultGenerator(objectType, out generator))
+            if (TryGetGenerator(fakerType, out generator))
             {
                 obj = generator.GenerateValue();
-                result = true;
             }
-            else
-            {
-                obj = null;
-            }
-            return result;
+            return obj != null;
         }
 
-        private bool TryGetCustomGenerator(Type objectType, out IGenerator generator)
+        private bool TryGetGenerator(FakerDTOType fakerType, out IGenerator generator)
         {
             generator = null;
-            return true;
-        }
+            if (_defaultGenerators.TryGetValue(fakerType.Type.Name, out generator))
+            {
 
-        private bool TryGetDefaultGenerator(Type objectType, out IGenerator generator)
-        {
-            return _defaultGenerators.TryGetValue(objectType.Name, out generator);
+            }
+            return generator != null;
         }
     }
 }

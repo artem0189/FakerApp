@@ -20,7 +20,7 @@ namespace FakerLib
         public T Create<T>()
         {
             ObjectFiller objectFiller = new ObjectFiller(_config);
-            return (T)objectFiller.FillObject(typeof(T));
+            return (T)objectFiller.FillObject(new FakerDTOType(typeof(T)));
         }
     }
 }

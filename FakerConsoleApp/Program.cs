@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq.Expressions;
+using System.Reflection;
 using FakerLib;
 using FakerLib.Attribute;
 
@@ -10,30 +12,32 @@ namespace FakerConsoleApp
         static void Main(string[] args)
         {
             Faker faker = new Faker();
-            Bar foo = faker.Create<Bar>();
+            Foo foo = faker.Create<Foo>();
         }
 
-         /*
-            IGenerator generator = (IGenerator)Activator.CreateInstance(typeof(GenerateType));
-            NameType fdg = (NameType)generator.GenerateValue();
 
-            MemberExpression test = expression.Body as MemberExpression;
-            PropertyInfo t = test.Member as PropertyInfo;
-            t.SetValue(obj, fdg);
-        */
+        /*
+           IGenerator generator = (IGenerator)Activator.CreateInstance(typeof(GenerateType));
+           NameType fdg = (NameType)generator.GenerateValue();
+
+           MemberExpression test = expression.Body as MemberExpression;
+           PropertyInfo t = test.Member as PropertyInfo;
+           t.SetValue(obj, fdg);
+       */
     }
 
-    [FakerDTO]
+    [FakerCreate]
     public class Foo
     {
         public Bar bar;
     }
 
-    [FakerDTO]
+    [FakerCreate]
     public class Bar
     {
         private int test;
         public int trh;
+        public string resg;
 
         public Bar(int test)
         {

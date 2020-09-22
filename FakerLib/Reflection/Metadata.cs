@@ -6,8 +6,14 @@ using System.Reflection;
 
 namespace FakerLib.Reflection
 {
-    static class MetaInfo
+    static class Metadata
     {
+        public static ConstructorInfo GetConstructor(Type type)
+        {
+            ConstructorInfo[] constructors = type.GetConstructors();
+            return constructors.Length == 0 ? null : constructors[0];
+        }
+
         public static MemberInfo[] GetFieldsAndProperties(Type objectType, BindingFlags flags)
         {
             MemberInfo[] result = objectType.GetMembers(flags).

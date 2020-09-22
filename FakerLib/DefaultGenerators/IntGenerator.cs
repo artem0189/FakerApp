@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Reflection;
 using System.Collections.Generic;
 using System.Text;
 
@@ -8,9 +9,12 @@ namespace FakerLib.Generators
     {
         private Random _rand;
 
+        public MemberInfo MemberType { get; }
+
         public IntGenerator()
         {
             _rand = new Random();
+            MemberType = null;
         }
 
         public object GenerateValue()
