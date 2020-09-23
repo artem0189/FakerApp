@@ -8,16 +8,24 @@ namespace StringGenerator
     [FakerClass(typeof(string))]
     public class StringGenerator : IGenerator
     {
-        public MemberInfo MemberType { get; }
+        private Random _rand;
+        private char[] _letters;
 
         public StringGenerator()
         {
-            MemberType = null;
+            _rand = new Random();
+            _letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".ToCharArray();
         }
 
-        public object GenerateValue()
+        public object GenerateValue(Type objectType)
         {
-            return "fegrhtgh";
+            string word = "";
+            int wordLength = _rand.Next() % 25;
+            for (int i = 0; i < wordLength; i++)
+            {
+                word += _letters[_rand.Next() % _letters.Length];
+            }
+            return word;
         }
     }
 }

@@ -10,7 +10,7 @@ namespace FakerConsoleApp
     class Program
     {
         static void Main(string[] args)
-        { 
+        {
             Faker faker = new Faker();
             Foo foo = faker.Create<Foo>();
         }
@@ -29,7 +29,9 @@ namespace FakerConsoleApp
     [FakerCreate]
     public class Foo
     {
-        public Bar bar;
+        [FakerIgnore]
+        public List<string> test;
+        public int t;
     }
 
     [FakerCreate]

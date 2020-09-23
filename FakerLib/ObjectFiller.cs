@@ -7,14 +7,15 @@ using FakerLib.Reflection;
 
 namespace FakerLib
 {
-    internal class ObjectFiller
+    public class ObjectFiller
     {
         private Generator _generator;
         private const BindingFlags _flags = BindingFlags.Instance | BindingFlags.Public;
 
         public ObjectFiller(FakerConfig config)
         {
-            _generator = new Generator(config);
+            _generator = new Generator();
+            _generator.Config = config;
         }
 
         public object FillObject(FakerDTOType fakerType)

@@ -9,15 +9,12 @@ namespace FakerLib.DefaultGenerators
     {
         private Random _rand;
 
-        public MemberInfo MemberType { get; }
-
         public IntGenerator()
         {
             _rand = new Random();
-            MemberType = null;
         }
 
-        public object GenerateValue()
+        public object GenerateValue(Type objectType)
         {
             return _rand.Next();
         }

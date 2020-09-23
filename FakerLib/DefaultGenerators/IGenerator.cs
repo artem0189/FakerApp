@@ -1,10 +1,10 @@
-﻿using System.Reflection;
+﻿using System;
+using System.Reflection;
 
 namespace FakerLib.DefaultGenerators
 {
     public interface IGenerator
     {
-        MemberInfo MemberType { get; }
-        object GenerateValue();
+        object GenerateValue(Type objectType);
     }
 }

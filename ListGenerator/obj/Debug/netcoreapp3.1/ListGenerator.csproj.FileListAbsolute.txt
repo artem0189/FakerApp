@@ -1,0 +1,11 @@
+C:\Users\USER\Desktop\лб\спп\FakerApp\FakerConsoleApp\ListGenerator\bin\Debug\netcoreapp3.1\ListGenerator.deps.json
+C:\Users\USER\Desktop\лб\спп\FakerApp\FakerConsoleApp\ListGenerator\bin\Debug\netcoreapp3.1\ListGenerator.dll
+C:\Users\USER\Desktop\лб\спп\FakerApp\FakerConsoleApp\ListGenerator\bin\Debug\netcoreapp3.1\ListGenerator.pdb
+C:\Users\USER\Desktop\лб\спп\FakerApp\FakerConsoleApp\ListGenerator\bin\Debug\netcoreapp3.1\FakerLib.dll
+C:\Users\USER\Desktop\лб\спп\FakerApp\FakerConsoleApp\ListGenerator\bin\Debug\netcoreapp3.1\FakerLib.pdb
+C:\Users\USER\Desktop\лб\спп\FakerApp\FakerConsoleApp\ListGenerator\obj\Debug\netcoreapp3.1\ListGenerator.AssemblyInfoInputs.cache
+C:\Users\USER\Desktop\лб\спп\FakerApp\FakerConsoleApp\ListGenerator\obj\Debug\netcoreapp3.1\ListGenerator.AssemblyInfo.cs
+C:\Users\USER\Desktop\лб\спп\FakerApp\FakerConsoleApp\ListGenerator\obj\Debug\netcoreapp3.1\ListGenerator.csproj.CopyComplete
+C:\Users\USER\Desktop\лб\спп\FakerApp\FakerConsoleApp\ListGenerator\obj\Debug\netcoreapp3.1\ListGenerator.dll
+C:\Users\USER\Desktop\лб\спп\FakerApp\FakerConsoleApp\ListGenerator\obj\Debug\netcoreapp3.1\ListGenerator.pdb
+C:\Users\USER\Desktop\лб\спп\FakerApp\FakerConsoleApp\ListGenerator\obj\Debug\netcoreapp3.1\ListGenerator.csprojAssemblyReference.cache

@@ -11,12 +11,11 @@ namespace FakerLib
 {
     public class Generator
     {
-        private FakerConfig _config;
-        private Dictionary<string, IGenerator> _defaultGenerators;
+        private static Dictionary<string, IGenerator> _defaultGenerators;
+        public FakerConfig Config { get; set; }
 
-        public Generator(FakerConfig config)
+        static Generator()
         {
-            _config = config;
             _defaultGenerators = new Dictionary<string, IGenerator>()
             {
                 { typeof(int).Name, new IntGenerator() }
@@ -24,7 +23,7 @@ namespace FakerLib
             LoadPlugin();
         }
 
-        private void LoadPlugin()
+        private static void LoadPlugin()
         {
             string pluginDirectory = AppDomain.CurrentDomain.BaseDirectory + "\\Plugins";
             if (Directory.Exists(pluginDirectory))
@@ -39,7 +38,7 @@ namespace FakerLib
                         {
                             FakerClassAttribute attribute = type.GetCustomAttribute(typeof(FakerClassAttribute)) as FakerClassAttribute;
                             IGenerator generator = Activator.CreateInstance(type) as IGenerator;                 
-                            _defaultGenerators.Add(attribute.ReturningType.Name, generator); // ?
+                            _defaultGenerators.Add(attribute.ReturningType.Name, generator);
                         }
                     }
                 }
@@ -52,7 +51,7 @@ namespace FakerLib
             IGenerator generator;
             if (TryGetGenerator(fakerType, out generator))
             {
-                obj = generator.GenerateValue();
+                obj = generator.GenerateValue(fakerType.Type);
             }
             return obj != null;
         }
