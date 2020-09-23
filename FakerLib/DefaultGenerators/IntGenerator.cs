@@ -3,7 +3,7 @@ using System.Reflection;
 using System.Collections.Generic;
 using System.Text;
 
-namespace FakerLib.Generators
+namespace FakerLib.DefaultGenerators
 {
     public class IntGenerator : IGenerator
     {

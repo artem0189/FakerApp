@@ -1,4 +1,3 @@
-C:\Users\USER\Desktop\лб\спп\FakerApp\FakerConsoleApp\FakerLib\obj\Debug\netcoreapp3.1\FakerLib.csprojAssemblyReference.cache
 C:\Users\USER\Desktop\лб\спп\FakerApp\FakerConsoleApp\FakerLib\obj\Debug\netcoreapp3.1\FakerLib.AssemblyInfoInputs.cache
 C:\Users\USER\Desktop\лб\спп\FakerApp\FakerConsoleApp\FakerLib\obj\Debug\netcoreapp3.1\FakerLib.AssemblyInfo.cs
 C:\Users\USER\Desktop\лб\спп\FakerApp\FakerConsoleApp\FakerLib\bin\Debug\netcoreapp3.1\FakerLib.deps.json

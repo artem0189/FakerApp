@@ -1,9 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using System.Reflection;
+﻿using System.Reflection;
 
-namespace FakerLib.Generators
+namespace FakerLib.DefaultGenerators
 {
     public interface IGenerator
     {

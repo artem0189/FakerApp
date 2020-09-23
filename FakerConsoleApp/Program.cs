@@ -10,7 +10,7 @@ namespace FakerConsoleApp
     class Program
     {
         static void Main(string[] args)
-        {
+        { 
             Faker faker = new Faker();
             Foo foo = faker.Create<Foo>();
         }
