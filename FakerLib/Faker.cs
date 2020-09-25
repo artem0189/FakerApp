@@ -1,7 +1,4 @@
-﻿using System;
-using System.Reflection;
-
-namespace FakerLib
+﻿namespace FakerLib
 {
     public class Faker
     {

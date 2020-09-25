@@ -2,18 +2,18 @@
 
 namespace FakerLib.DefaultGenerators
 {
-    public class IntGenerator : IGenerator
+    public class DoubleGenerator : IGenerator
     {
         private Random _rand;
 
-        public IntGenerator()
+        public DoubleGenerator()
         {
             _rand = new Random();
         }
 
         public object GenerateValue(Type objectType, ObjectFiller objectFiller)
         {
-            return _rand.Next();
+            return _rand.NextDouble();
         }
     }
 }

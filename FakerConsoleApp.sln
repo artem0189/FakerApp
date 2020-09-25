@@ -11,6 +11,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ListGenerator", "ListGenera
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FakerUnitTests", "FakerUnitTests\FakerUnitTests.csproj", "{FEA64BDB-00FE-42C4-95BC-65313C372D3A}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DateTimeGenerator", "DateTimeGenerator\DateTimeGenerator.csproj", "{D91140DD-8839-48B8-BDEC-C8D26EDB890B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,10 @@ Global
 		{FEA64BDB-00FE-42C4-95BC-65313C372D3A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FEA64BDB-00FE-42C4-95BC-65313C372D3A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FEA64BDB-00FE-42C4-95BC-65313C372D3A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D91140DD-8839-48B8-BDEC-C8D26EDB890B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D91140DD-8839-48B8-BDEC-C8D26EDB890B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D91140DD-8839-48B8-BDEC-C8D26EDB890B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D91140DD-8839-48B8-BDEC-C8D26EDB890B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

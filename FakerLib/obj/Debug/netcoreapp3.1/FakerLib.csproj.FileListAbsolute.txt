@@ -5,4 +5,3 @@ C:\Users\USER\Desktop\лб\спп\FakerApp\FakerConsoleApp\FakerLib\bin\Debug\ne
 C:\Users\USER\Desktop\лб\спп\FakerApp\FakerConsoleApp\FakerLib\bin\Debug\netcoreapp3.1\FakerLib.pdb
 C:\Users\USER\Desktop\лб\спп\FakerApp\FakerConsoleApp\FakerLib\obj\Debug\netcoreapp3.1\FakerLib.dll
 C:\Users\USER\Desktop\лб\спп\FakerApp\FakerConsoleApp\FakerLib\obj\Debug\netcoreapp3.1\FakerLib.pdb
-C:\Users\USER\Desktop\лб\спп\FakerApp\FakerConsoleApp\FakerLib\obj\Debug\netcoreapp3.1\FakerLib.csprojAssemblyReference.cache

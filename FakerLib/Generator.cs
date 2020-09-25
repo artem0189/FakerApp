@@ -1,8 +1,6 @@
 ﻿using System;
 using System.IO;
-using System.Linq;
 using System.Collections.Generic;
-using System.Text;
 using System.Reflection;
 using FakerLib.DefaultGenerators;
 using FakerLib.Attribute;
@@ -20,7 +18,10 @@ namespace FakerLib
             {
                 { typeof(int).MetadataToken, new IntGenerator() },
                 { typeof(float).MetadataToken, new FloatGenerator() },
-                { typeof(string).MetadataToken, new StringGenerator() }
+                { typeof(string).MetadataToken, new StringGenerator() },
+                { typeof(double).MetadataToken, new DoubleGenerator() },
+                { typeof(long).MetadataToken, new LongGenerator() },
+                { typeof(char).MetadataToken, new CharGenerator() }
             };
             LoadPlugin();
         }

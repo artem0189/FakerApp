@@ -2,18 +2,20 @@
 
 namespace FakerLib.DefaultGenerators
 {
-    public class IntGenerator : IGenerator
+    public class CharGenerator : IGenerator
     {
         private Random _rand;
+        private char[] _letters;
 
-        public IntGenerator()
+        public CharGenerator()
         {
             _rand = new Random();
+            _letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".ToCharArray();
         }
 
         public object GenerateValue(Type objectType, ObjectFiller objectFiller)
         {
-            return _rand.Next();
+            return _letters[_rand.Next(0, _letters.Length)];
         }
     }
 }

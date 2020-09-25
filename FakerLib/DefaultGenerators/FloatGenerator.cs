@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace FakerLib.DefaultGenerators
 {
@@ -15,7 +13,9 @@ namespace FakerLib.DefaultGenerators
 
         public object GenerateValue(Type objectType, ObjectFiller objectFiller)
         {
-            return _rand.NextDouble();
+            double mantissa = (_rand.NextDouble() * 2.0) - 1.0;
+            double exponent = Math.Pow(2.0, _rand.Next(-126, 128));
+            return (float)(mantissa * exponent);
         }
     }
 }

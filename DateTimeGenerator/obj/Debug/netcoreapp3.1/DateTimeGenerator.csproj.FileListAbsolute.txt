@@ -1,0 +1,11 @@
+C:\Users\USER\Desktop\лб\спп\FakerApp\FakerConsoleApp\DateTimeGenerator\bin\Debug\netcoreapp3.1\DateTimeGenerator.deps.json
+C:\Users\USER\Desktop\лб\спп\FakerApp\FakerConsoleApp\DateTimeGenerator\bin\Debug\netcoreapp3.1\DateTimeGenerator.dll
+C:\Users\USER\Desktop\лб\спп\FakerApp\FakerConsoleApp\DateTimeGenerator\bin\Debug\netcoreapp3.1\DateTimeGenerator.pdb
+C:\Users\USER\Desktop\лб\спп\FakerApp\FakerConsoleApp\DateTimeGenerator\bin\Debug\netcoreapp3.1\FakerLib.dll
+C:\Users\USER\Desktop\лб\спп\FakerApp\FakerConsoleApp\DateTimeGenerator\bin\Debug\netcoreapp3.1\FakerLib.pdb
+C:\Users\USER\Desktop\лб\спп\FakerApp\FakerConsoleApp\DateTimeGenerator\obj\Debug\netcoreapp3.1\DateTimeGenerator.csprojAssemblyReference.cache
+C:\Users\USER\Desktop\лб\спп\FakerApp\FakerConsoleApp\DateTimeGenerator\obj\Debug\netcoreapp3.1\DateTimeGenerator.AssemblyInfoInputs.cache
+C:\Users\USER\Desktop\лб\спп\FakerApp\FakerConsoleApp\DateTimeGenerator\obj\Debug\netcoreapp3.1\DateTimeGenerator.AssemblyInfo.cs
+C:\Users\USER\Desktop\лб\спп\FakerApp\FakerConsoleApp\DateTimeGenerator\obj\Debug\netcoreapp3.1\DateTimeGenerator.csproj.CopyComplete
+C:\Users\USER\Desktop\лб\спп\FakerApp\FakerConsoleApp\DateTimeGenerator\obj\Debug\netcoreapp3.1\DateTimeGenerator.dll
+C:\Users\USER\Desktop\лб\спп\FakerApp\FakerConsoleApp\DateTimeGenerator\obj\Debug\netcoreapp3.1\DateTimeGenerator.pdb
