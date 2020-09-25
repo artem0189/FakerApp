@@ -1,9 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq.Expressions;
 using System.Reflection;
 using FakerLib;
 using FakerLib.Attribute;
+using FakerLib.DefaultGenerators;
 
 namespace FakerConsoleApp
 {
@@ -11,39 +13,37 @@ namespace FakerConsoleApp
     {
         static void Main(string[] args)
         {
-            Faker faker = new Faker();
-            Foo foo = faker.Create<Foo>();
+            FakerConfig config = new FakerConfig();
+            config.Add<Bar, int, IntGenerator>(bar => bar.Test);
+            Faker faker = new Faker(config);
+            Bar foo = faker.Create<Bar>();
         }
+    }
 
-
-        /*
-           IGenerator generator = (IGenerator)Activator.CreateInstance(typeof(GenerateType));
-           NameType fdg = (NameType)generator.GenerateValue();
-
-           MemberExpression test = expression.Body as MemberExpression;
-           PropertyInfo t = test.Member as PropertyInfo;
-           t.SetValue(obj, fdg);
-       */
+    public class IntGenerator : IGenerator
+    {
+        public object GenerateValue(Type objectType, ObjectFiller objectFiller)
+        {
+            return -1;
+        }
     }
 
     [FakerCreate]
     public class Foo
     {
-        [FakerIgnore]
-        public List<string> test;
+        public List<Bar> test;
         public int t;
     }
 
     [FakerCreate]
     public class Bar
     {
-        private int test;
-        public int trh;
+        public int Test { get; }
         public string resg;
 
         public Bar(int test)
         {
-            this.test = test;
+            Test = test;
         }
     }
 }

@@ -1,22 +1,21 @@
 ﻿using System;
-using System.Reflection;
 using System.Collections.Generic;
 using System.Text;
 
 namespace FakerLib.DefaultGenerators
 {
-    public class IntGenerator : IGenerator
+    public class FloatGenerator : IGenerator
     {
         private Random _rand;
 
-        public IntGenerator()
+        public FloatGenerator()
         {
             _rand = new Random();
         }
 
         public object GenerateValue(Type objectType, ObjectFiller objectFiller)
         {
-            return _rand.Next();
+            return _rand.NextDouble();
         }
     }
 }

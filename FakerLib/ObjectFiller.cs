@@ -12,46 +12,49 @@ namespace FakerLib
         private Generator _generator;
         private const BindingFlags _flags = BindingFlags.Instance | BindingFlags.Public;
 
-        public ObjectFiller(FakerConfig config)
+        public ObjectFiller(Generator generator)
         {
-            _generator = new Generator();
-            _generator.Config = config;
+            _generator = generator;
         }
 
-        public object FillObject(FakerDTOType fakerType)
+        public object FillObject(FakerType fakerType)
         {
             object obj = null;
-            if (!fakerType.IsIgnoreAttribute)
+            if (!_generator.TryGenerateValue(fakerType, this, out obj) && fakerType.IsCreateAttribute)
             {
-                if (!_generator.TryGenerateValue(fakerType, out obj) && fakerType.IsCreateAttribute)
+                if (TryCreateObject(fakerType, out obj))
                 {
-                    if (TryCreateObject(fakerType, out obj))
+                    MemberInfo[] members = Metadata.GetFieldsAndProperties(fakerType.Type, _flags);
+                    for (int i = 0; i < members.Length; i++)
                     {
-                        MemberInfo[] members = Metadata.GetFieldsAndProperties(fakerType.Type, _flags);
-                        for (int i = 0; i < members.Length; i++)
-                        {
-                            object value = FillObject(new FakerDTOType(Metadata.GetMemberType(members[i]), members[i]));
-                            Metadata.SetValue(members[i], obj, value);
-                        }
+                        object value = FillObject(new FakerType(Metadata.GetMemberType(members[i]), fakerType.Type, members[i].Name));
+                        Metadata.SetValue(members[i], obj, value);
                     }
                 }
             }
             return obj;
         }
 
-        private bool TryCreateObject(FakerDTOType fakerType, out object obj)
+        private bool TryCreateObject(FakerType fakerType, out object obj)
         {
             obj = null;
-            ConstructorInfo constructor = Metadata.GetConstructor(fakerType.Type);
-            if (constructor != null)
+            ConstructorInfo[] constructors = fakerType.Type.GetConstructors();
+            constructors = constructors.OrderByDescending(constructor => constructor.GetParameters().Length).ToArray();
+            for (int i = 0; i < constructors.Length; i++)
             {
-                ParameterInfo[] parameters = constructor.GetParameters();
+                ParameterInfo[] parameters = constructors[i].GetParameters();
                 object[] constructorParams = new object[parameters.Length];
-                for (int i = 0; i < parameters.Length; i++)
+                for (int j = 0; j < parameters.Length; j++)
                 {
-                    constructorParams[i] = FillObject(new FakerDTOType(parameters[i].ParameterType));
+                    constructorParams[j] = FillObject(new FakerType(parameters[j].ParameterType, fakerType.Type, parameters[j].Name));
                 }
-                obj = Activator.CreateInstance(fakerType.Type, constructorParams);
+
+                try
+                {
+                    obj = Activator.CreateInstance(fakerType.Type, constructorParams);
+                    break;
+                }
+                catch { }
             }
             return obj != null;
         }

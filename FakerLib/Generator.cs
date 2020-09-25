@@ -11,14 +11,16 @@ namespace FakerLib
 {
     public class Generator
     {
-        private static Dictionary<string, IGenerator> _defaultGenerators;
+        private static Dictionary<int, IGenerator> _defaultGenerators;
         public FakerConfig Config { get; set; }
 
         static Generator()
         {
-            _defaultGenerators = new Dictionary<string, IGenerator>()
+            _defaultGenerators = new Dictionary<int, IGenerator>()
             {
-                { typeof(int).Name, new IntGenerator() }
+                { typeof(int).MetadataToken, new IntGenerator() },
+                { typeof(float).MetadataToken, new FloatGenerator() },
+                { typeof(string).MetadataToken, new StringGenerator() }
             };
             LoadPlugin();
         }
@@ -36,32 +38,38 @@ namespace FakerLib
                     {
                         if (type.GetInterface(typeof(IGenerator).Name) != null && type.IsDefined(typeof(FakerClassAttribute)))
                         {
-                            FakerClassAttribute attribute = type.GetCustomAttribute(typeof(FakerClassAttribute)) as FakerClassAttribute;
-                            IGenerator generator = Activator.CreateInstance(type) as IGenerator;                 
-                            _defaultGenerators.Add(attribute.ReturningType.Name, generator);
+                            FakerClassAttribute attribute = type.GetCustomAttribute(typeof(FakerClassAttribute)) as FakerClassAttribute;              
+                            _defaultGenerators.Add(attribute.ReturningType.MetadataToken, (IGenerator)Activator.CreateInstance(type));
                         }
                     }
                 }
             }
         }
 
-        public bool TryGenerateValue(FakerDTOType fakerType, out object obj)
+        public bool TryGenerateValue(FakerType fakerType, ObjectFiller objectFiller, out object obj)
         {
             obj = null;
             IGenerator generator;
             if (TryGetGenerator(fakerType, out generator))
             {
-                obj = generator.GenerateValue(fakerType.Type);
+                obj = generator.GenerateValue(fakerType.Type, objectFiller);
             }
             return obj != null;
         }
 
-        private bool TryGetGenerator(FakerDTOType fakerType, out IGenerator generator)
+        private bool TryGetGenerator(FakerType fakerType, out IGenerator generator)
         {
             generator = null;
-            if (_defaultGenerators.TryGetValue(fakerType.Type.Name, out generator))
+            if (Config == null)
             {
-
+                _defaultGenerators.TryGetValue(fakerType.Type.MetadataToken, out generator);
+            }
+            else
+            {
+                if (fakerType.BaseType != null && !Config.TryGetGenerator(fakerType.BaseType, fakerType.MemberName, out generator))
+                {
+                    _defaultGenerators.TryGetValue(fakerType.Type.MetadataToken, out generator);
+                }
             }
             return generator != null;
         }
