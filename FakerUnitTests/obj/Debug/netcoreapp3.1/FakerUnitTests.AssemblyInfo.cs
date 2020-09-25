@@ -11,12 +11,12 @@
 using System;
 using System.Reflection;
 
-[assembly: System.Reflection.AssemblyCompanyAttribute("StringGenerator")]
+[assembly: System.Reflection.AssemblyCompanyAttribute("FakerUnitTests")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
 [assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
-[assembly: System.Reflection.AssemblyProductAttribute("StringGenerator")]
-[assembly: System.Reflection.AssemblyTitleAttribute("StringGenerator")]
+[assembly: System.Reflection.AssemblyProductAttribute("FakerUnitTests")]
+[assembly: System.Reflection.AssemblyTitleAttribute("FakerUnitTests")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
 
 // Создано классом WriteCodeFragment MSBuild.

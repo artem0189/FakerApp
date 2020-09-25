@@ -8,19 +8,11 @@ namespace FakerLib.Reflection
 {
     static class Metadata
     {
-        public static ConstructorInfo GetConstructor(Type type)
-        {
-            ConstructorInfo[] constructors = type.GetConstructors();
-            return constructors.Length == 0 ? null : constructors[0];
-        }
-
         public static MemberInfo[] GetFieldsAndProperties(Type objectType, BindingFlags flags)
         {
-            MemberInfo[] result = objectType.GetMembers(flags).
-                Where(member => member is PropertyInfo || member is FieldInfo).
-                ToArray();
-
-            return result;
+            PropertyInfo[] properties = objectType.GetProperties(flags).Where(prop => prop.CanWrite).ToArray();
+            FieldInfo[] fields = objectType.GetFields(flags);
+            return fields.Cast<MemberInfo>().Concat(properties.Cast<MemberInfo>()).ToArray();
         }
 
         public static Type GetMemberType(MemberInfo memberInfo)

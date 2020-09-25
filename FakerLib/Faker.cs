@@ -5,22 +5,22 @@ namespace FakerLib
 {
     public class Faker
     {
-        private FakerConfig _config;
+        private Generator _generator;
 
         public Faker()
         {
-            _config = null;
+            _generator = new Generator();
         }
 
-        public Faker(FakerConfig config)
+        public Faker(FakerConfig config) : this()
         {
-            _config = config;
+            _generator.Config = config;
         }
 
         public T Create<T>()
         {
-            ObjectFiller objectFiller = new ObjectFiller(_config);
-            return (T)objectFiller.FillObject(new FakerDTOType(typeof(T)));
+            ObjectFiller objectFiller = new ObjectFiller(_generator);
+            return (T)objectFiller.FillObject(new FakerType(typeof(T)));
         }
     }
 }

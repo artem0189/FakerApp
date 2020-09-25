@@ -5,6 +5,6 @@ namespace FakerLib.DefaultGenerators
 {
     public interface IGenerator
     {
-        object GenerateValue(Type objectType);
+        object GenerateValue(Type objectType, ObjectFiller objectFiller);
     }
 }

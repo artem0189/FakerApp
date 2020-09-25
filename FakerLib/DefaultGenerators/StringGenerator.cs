@@ -1,11 +1,7 @@
 ﻿using System;
-using System.Reflection;
-using FakerLib.Attribute;
-using FakerLib.DefaultGenerators;
 
-namespace StringGenerator
+namespace FakerLib.DefaultGenerators
 {
-    [FakerClass(typeof(string))]
     public class StringGenerator : IGenerator
     {
         private Random _rand;
@@ -17,7 +13,7 @@ namespace StringGenerator
             _letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".ToCharArray();
         }
 
-        public object GenerateValue(Type objectType)
+        public object GenerateValue(Type objectType, ObjectFiller objectFiller)
         {
             string word = "";
             int wordLength = _rand.Next() % 25;
