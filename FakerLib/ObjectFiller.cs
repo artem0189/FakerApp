@@ -36,8 +36,10 @@ namespace FakerLib
         private bool TryCreateObject(FakerType fakerType, out object obj)
         {
             obj = null;
-            ConstructorInfo[] constructors = fakerType.Type.GetConstructors();
-            constructors = constructors.OrderByDescending(constructor => constructor.GetParameters().Length).ToArray();
+            ConstructorInfo[] constructors = fakerType.Type.GetConstructors(_flags);
+            constructors = constructors.OrderByDescending(constructor => constructor.GetParameters().Length).
+                Append(typeof(object).GetConstructor(Type.EmptyTypes)).
+                ToArray();
             for (int i = 0; i < constructors.Length; i++)
             {
                 ParameterInfo[] parameters = constructors[i].GetParameters();

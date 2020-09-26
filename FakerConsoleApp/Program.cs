@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using FakerLib;
 using FakerLib.Attribute;
 
@@ -16,6 +17,6 @@ namespace FakerConsoleApp
     [FakerCreate]
     public class Bar
     {
-        public DateTime resg;
+        public List<int> test;
     }
 }

@@ -23,7 +23,7 @@ namespace ListGenerator
             Type createdElement = objectType.GetGenericArguments()[0];
             IList list = (IList)Activator.CreateInstance(objectType);
 
-            int countObject = _rand.Next() % 10;
+            int countObject = _rand.Next() % 7 + 1;
             for (int i = 0; i < countObject; i++)
             {
                 object value = objectFiller.FillObject(new FakerType(createdElement));

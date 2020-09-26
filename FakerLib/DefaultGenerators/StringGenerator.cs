@@ -16,7 +16,7 @@ namespace FakerLib.DefaultGenerators
         public object GenerateValue(Type objectType, ObjectFiller objectFiller)
         {
             string word = "";
-            int wordLength = _rand.Next() % 25;
+            int wordLength = _rand.Next() % 24 + 1;
             for (int i = 0; i < wordLength; i++)
             {
                 word += _letters[_rand.Next() % _letters.Length];

@@ -61,13 +61,13 @@ namespace FakerLib
         private bool TryGetGenerator(FakerType fakerType, out IGenerator generator)
         {
             generator = null;
-            if (Config == null)
+            if (Config == null || fakerType.BaseType == null)
             {
                 _defaultGenerators.TryGetValue(fakerType.Type.MetadataToken, out generator);
             }
             else
             {
-                if (fakerType.BaseType != null && !Config.TryGetGenerator(fakerType.BaseType, fakerType.MemberName, out generator))
+                if (!Config.TryGetGenerator(fakerType.BaseType, fakerType.MemberName, out generator))
                 {
                     _defaultGenerators.TryGetValue(fakerType.Type.MetadataToken, out generator);
                 }
