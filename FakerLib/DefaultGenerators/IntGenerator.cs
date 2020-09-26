@@ -13,7 +13,7 @@ namespace FakerLib.DefaultGenerators
 
         public object GenerateValue(Type objectType, ObjectFiller objectFiller)
         {
-            return _rand.Next();
+            return _rand.Next(1, Int32.MaxValue);
         }
     }
 }
